@@ -1,8 +1,8 @@
-# 🏆 Amazon ML Challenge 2026 — Business Entity Resolution
+# Amazon ML Challenge 2026 — Business Entity Resolution
 
 > **Score: 0.968235 (F₀.₅) · Rank: 1584**
 
-## 📋 Problem Statement
+## Problem Statement
 
 Given business records from **3 independent data sources** with noisy and inconsistent fields (names, addresses, countries), determine which records across sources refer to the **same real-world business entity**. Source 1 is the deduplicated reference — the task is to find all matching records from Source 2 and Source 3 for each Source 1 entity.
 
@@ -14,7 +14,7 @@ Given business records from **3 independent data sources** with noisy and incons
 
 **Metric:** F₀.₅ (precision-heavy — false merges are penalised more than missed links)
 
-## 🏗️ Pipeline Architecture
+## Pipeline Architecture
 
 ```
 raw TSVs ─► normalize (learned translit + abbreviation maps) ─► fine-tune multilingual bi-encoder (contrastive)
@@ -47,34 +47,19 @@ raw TSVs ─► normalize (learned translit + abbreviation maps) ─► fine-tun
 - **Test-matched distractor density** — Both worlds are topped up to the test's 5.76 others-per-S1 ratio with orphan records, keeping validation precision honest
 - **Country-isolated blocking** — Matches never cross countries (verified: 0/693K pairs), so blocking runs within each country. No country feature in the model, so unseen countries (France) work out of the box
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 student_resource/
 ├── amazon_ml_challenge_problem_statement.txt   # Official problem statement
-├── dataset/
-│   ├── train/                                  # Training data (not tracked — too large)
-│   │   ├── train_source1.tsv                   #   2.2M S1 records (~200 MB)
-│   │   ├── train_source2.tsv                   #   5.0M S2 records (~467 MB)
-│   │   ├── train_source3.tsv                   #   5.3M S3 records (~480 MB)
-│   │   └── train_ground_truth.tsv              #   Ground truth labels (~121 MB)
-│   └── test/                                   # Test data (not tracked — too large)
-│       ├── test_source1.tsv                    #   1.7M S1 records (~167 MB)
-│       ├── test_source2.tsv                    #   4.9M S2 records (~486 MB)
-│       └── test_source3.tsv                    #   5.1M S3 records (~482 MB)
 ├── src/
-│   ├── amz-ml-challenge-kaggle-notebook.ipynb  # ⭐ Complete end-to-end pipeline
-│   ├── requirements.txt                        # Pinned dependencies
-│   └── kaggle-outputs/                         # Generated output files (not tracked)
-│       ├── matching_results.tsv                #   Final matches (uploaded to portal)
-│       └── candidate_pairs.tsv                 #   Blocking candidate set
+│   ├── amz-ml-challenge-kaggle-notebook.ipynb  # Complete end-to-end pipeline
+│   └── requirements.txt                        # Pinned dependencies
 ├── utils/
 │   └── validate_submission.py                  # Official submission validator
 ├── .gitignore
 └── README.md
 ```
-
-> **Note:** Dataset files (`dataset/`) and output files (`src/kaggle-outputs/`) are excluded from version control due to their size (~2 GB+). See [Data Setup](#-data-setup) below to obtain them.
 
 ## 🔧 Tech Stack
 
@@ -92,12 +77,11 @@ student_resource/
 | NumPy | 2.0.2 | Numerical operations |
 | SciPy | 1.16.3 | Sparse matrix operations |
 
-## 🚀 Reproduction Steps
+## Reproduction Steps
 
 ### Data Setup
 
 1. Download the dataset from the Amazon ML Challenge 2026 portal
-2. Place the TSV files under `dataset/train/` and `dataset/test/` as shown in the structure above
 
 ### Running on Kaggle (Recommended)
 
@@ -134,17 +118,15 @@ python utils/validate_submission.py \
     --test-dir dataset/test
 ```
 
-## 📊 Results
+## Results
 
 | Metric | Score |
 |---|---|
 | **F₀.₅ (Public Leaderboard)** | **0.968235** |
 | **Rank** | **1584** |
 
-## 👥 Team
+## Team
 
-- [Abhinav Shukla](https://github.com/AbhinavShukla)
-
-## 📄 License
-
-This project was created for the Amazon ML Challenge 2026. All models used are MIT/Apache 2.0 licensed (≤8B parameters) as required by the competition rules.
+- [Abhinav Shukla](https://github.com/abhishukla0204)
+- [Krishna Kumar Gupta]()
+- [Amit Kumar](https://github.com/Amitkumar-21)
