@@ -1,6 +1,8 @@
 # Amazon ML Challenge 2026 — Business Entity Resolution
 
 > **Score: 0.968235 (F₀.₅) · Rank: 1584**
+>
+> **Kaggle Notebook:** [amazon-ml-challenge-26](https://www.kaggle.com/code/abhi0204/amazon-ml-challenge-26)
 
 ## Problem Statement
 
@@ -61,7 +63,7 @@ student_resource/
 └── README.md
 ```
 
-## 🔧 Tech Stack
+## Tech Stack
 
 | Library | Version | Purpose |
 |---|---|---|
