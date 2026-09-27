@@ -128,5 +128,5 @@ python utils/validate_submission.py \
 ## Team
 
 - [Abhinav Shukla](https://github.com/abhishukla0204)
-- [Krishna Kumar Gupta]()
+- [Krishna Kumar Gupta](https://github.com/krishnagupta7171)
 - [Amit Kumar](https://github.com/Amitkumar-21)
