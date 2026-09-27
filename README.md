@@ -51,7 +51,7 @@ raw TSVs ─► normalize (learned translit + abbreviation maps) ─► fine-tun
 
 ```
 student_resource/
-├── amazon_ml_challenge_problem_statement.txt   # Official problem statement
+├── amazon_ml_challenge_problem_statement.pdf   # Official problem statement
 ├── src/
 │   ├── amz-ml-challenge-kaggle-notebook.ipynb  # Complete end-to-end pipeline
 │   └── requirements.txt                        # Pinned dependencies
